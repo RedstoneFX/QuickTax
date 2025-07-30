@@ -61,6 +61,7 @@ public class WithdrawCommand {
 
         if(amount <= 0) {
             MessageManager.sendMessage(sender,"tax-withdraw-fail-invalid");
+            return false;
         }
 
         try {
