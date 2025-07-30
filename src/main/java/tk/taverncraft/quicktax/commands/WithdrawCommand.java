@@ -59,6 +59,10 @@ public class WithdrawCommand {
 
         double amount = Double.parseDouble(strAmount);
 
+        if(amount <= 0) {
+            MessageManager.sendMessage(sender,"tax-withdraw-fail-invalid");
+        }
+
         try {
             double totalTaxBalance = Double.parseDouble(this.main.getStatsManager().getServerStats()[1]);
             if (validationManager.serverHasTaxBalance(amount, totalTaxBalance)) {
